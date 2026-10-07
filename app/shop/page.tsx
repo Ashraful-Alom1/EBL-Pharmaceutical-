@@ -268,11 +268,17 @@ export default function StoreHomePage() {
             {extendedSlides.map((slide, idx) => {
               return (
                 <div
-                  key={`${slide.id}-${idx}`}
-                  className="min-w-full h-full relative shrink-0 overflow-hidden"
-                  style={{ backgroundColor: slide.bgColor || "#E8D9EB" }}
-                >
-                  <Link href={slide.link} className="block w-full h-full relative group/slide">
+                key={`${slide.id}-${idx}`}
+                className="w-full min-w-full max-w-full h-full relative shrink-0 flex-none basis-full overflow-hidden"
+                style={{
+                  backgroundColor: slide.bgColor || "#E8D9EB",
+                  width: "100%",
+                  minWidth: "100%",
+                  maxWidth: "100%",
+                  flex: "0 0 100%",
+                }}
+              >
+                  <Link href={slide.link} className="block w-full h-full relative group/slide overflow-hidden">
                     {/* Unified Full-Bleed Complete Banner - 100% same genuine EBL product banner across all devices */}
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
