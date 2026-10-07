@@ -22,13 +22,13 @@ export default function CorpFooter() {
       <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
         {/* 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-14 border-b border-gray-800 text-[13px] leading-relaxed">
-          {/* Column 1: Registered Office */}
+          {/* Column 1: Corporate & Registered Office */}
           <div>
             <h4 className="text-white font-bold text-sm mb-4 tracking-normal">
               Contact Information
             </h4>
             <div className="space-y-2">
-              <p className="text-gray-400 font-medium">Registered Office</p>
+              <p className="text-gray-400 font-medium">Corporate &amp; Registered Office</p>
               <p className="text-white font-semibold">{settings.legalName}</p>
               <p className="text-gray-400 font-mono text-xs">CIN: {settings.cin}</p>
               <p className="text-gray-400 text-xs leading-normal">
@@ -43,26 +43,23 @@ export default function CorpFooter() {
             </div>
           </div>
 
-          {/* Column 2: Corporate Office */}
+          {/* Column 2: Support & Inquiries */}
           <div>
-            <h4 className="text-white font-bold text-sm mb-4 tracking-normal lg:opacity-0 hidden lg:block select-none">
-              &nbsp;
+            <h4 className="text-white font-bold text-sm mb-4 tracking-normal">
+              Support &amp; Inquiries
             </h4>
             <div className="space-y-2">
-              <p className="text-gray-400 font-medium">Corporate Office</p>
-              <p className="text-gray-400 text-xs leading-normal">
-                {settings.corporateOffice}
-              </p>
-              <p className="pt-2 text-gray-300">
-                Tel:{" "}
-                <a href={`tel:${settings.contactPhone}`} className="hover:text-white transition-colors">
-                  {settings.contactPhone}
-                </a>
-              </p>
+              <p className="text-gray-400 font-medium">Corporate Communications</p>
               <p className="text-gray-300">
                 E-mail:{" "}
                 <a href={`mailto:${settings.contactEmail}`} className="hover:text-white transition-colors">
                   {settings.contactEmail}
+                </a>
+              </p>
+              <p className="text-gray-300">
+                Tel:{" "}
+                <a href={`tel:${settings.contactPhone}`} className="hover:text-white transition-colors">
+                  {settings.contactPhone}
                 </a>
               </p>
               {settings.officeHours && (
@@ -70,6 +67,9 @@ export default function CorpFooter() {
                   Hours: {settings.officeHours}
                 </p>
               )}
+              <p className="text-xs text-gray-500 pt-2 leading-relaxed">
+                Direct procurement, trade inquiries and institutional distribution across India.
+              </p>
             </div>
           </div>
 

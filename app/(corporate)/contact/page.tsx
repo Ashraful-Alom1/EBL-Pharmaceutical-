@@ -49,19 +49,10 @@ export default function ContactPage() {
 
             <div>
               <span className="text-xs font-bold uppercase text-[#0A1B8F] block mb-1">
-                Registered Office
+                Corporate &amp; Registered Office
               </span>
               <p className="text-xs text-gray-600 leading-relaxed">
                 {COMPANY_INFO.registeredOffice}
-              </p>
-            </div>
-
-            <div>
-              <span className="text-xs font-bold uppercase text-[#0A1B8F] block mb-1">
-                Secondary / Operations Hub
-              </span>
-              <p className="text-xs text-gray-600 leading-relaxed">
-                {COMPANY_INFO.corporateOffice}
               </p>
             </div>
 

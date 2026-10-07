@@ -152,7 +152,12 @@ class DataStore {
         if (Array.isArray(data.leads)) this.leads = sanitizeEntities(data.leads, this.deletedIds);
         if (Array.isArray(data.jobs)) this.jobs = sanitizeEntities(data.jobs, this.deletedIds);
         if (Array.isArray(data.applications)) this.applications = sanitizeEntities(data.applications, this.deletedIds);
-        if (data.companySettings && typeof data.companySettings === "object") this.companySettings = { ...this.companySettings, ...data.companySettings };
+        if (data.companySettings && typeof data.companySettings === "object") {
+          this.companySettings = { ...this.companySettings, ...data.companySettings };
+          if (this.companySettings.registeredOffice?.includes("066320") || this.companySettings.registeredOffice?.includes("Tripura")) {
+            this.companySettings.registeredOffice = INITIAL_COMPANY_SETTINGS.registeredOffice;
+          }
+        }
         if (Array.isArray(data.auditLogs) && data.auditLogs.length > 0) this.auditLogs = data.auditLogs;
       }
       // Note: If no localStorage entry exists yet, we NEVER call this.save() or this.saveToFirebase().
@@ -200,7 +205,12 @@ class DataStore {
           if (Array.isArray(data.leads)) this.leads = sanitizeEntities(data.leads, this.deletedIds);
           if (Array.isArray(data.jobs)) this.jobs = sanitizeEntities(data.jobs, this.deletedIds);
           if (Array.isArray(data.applications)) this.applications = sanitizeEntities(data.applications, this.deletedIds);
-          if (data.companySettings && typeof data.companySettings === "object") this.companySettings = { ...this.companySettings, ...data.companySettings };
+          if (data.companySettings && typeof data.companySettings === "object") {
+            this.companySettings = { ...this.companySettings, ...data.companySettings };
+            if (this.companySettings.registeredOffice?.includes("066320") || this.companySettings.registeredOffice?.includes("Tripura")) {
+              this.companySettings.registeredOffice = INITIAL_COMPANY_SETTINGS.registeredOffice;
+            }
+          }
           if (Array.isArray(data.auditLogs)) this.auditLogs = data.auditLogs;
 
           // Recalculate low stock flags based on current reorder levels

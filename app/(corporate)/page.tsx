@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -8,10 +8,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Download,
-  Play,
-  Pause,
-  Volume2,
-  VolumeX,
   CheckCircle2,
   Pill,
   Heart,
@@ -21,7 +17,6 @@ import {
   ShieldAlert,
   Sparkles,
 } from "lucide-react";
-import { COMPANY_INFO } from "@/lib/constants";
 
 export default function CorporateHomePage() {
   // Swiper state for Card 1 (R&D Excellence)
@@ -75,13 +70,6 @@ export default function CorporateHomePage() {
     },
   ];
 
-  // Audio player state
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
-  const [playbackSpeed, setPlaybackSpeed] = useState("1.0");
-  const [audioProgress, setAudioProgress] = useState(25);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
   // Auto-cycle the stat cards every 5s
   useEffect(() => {
     const timer = setInterval(() => {
@@ -90,31 +78,6 @@ export default function CorporateHomePage() {
     }, 4500);
     return () => clearInterval(timer);
   }, [card1Items.length, card2Items.length]);
-
-  const togglePlay = () => {
-    if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current.play().catch(() => {});
-      setIsPlaying(true);
-    }
-  };
-
-  const toggleMute = () => {
-    if (!audioRef.current) return;
-    audioRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
-  };
-
-  const handleSpeedChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const speed = parseFloat(e.target.value);
-    setPlaybackSpeed(e.target.value);
-    if (audioRef.current) {
-      audioRef.current.playbackRate = speed;
-    }
-  };
 
   return (
     <div className="flex flex-col bg-white">
@@ -813,146 +776,7 @@ export default function CorporateHomePage() {
         </div>
       </section>
 
-      {/* ============================================================== */}
-      {/* 9. EARNINGS AUDIO PLAYER & ANNUAL REPORT (annual_grid_layer) */}
-      {/* ============================================================== */}
-      <section className="bg-[#EDF2F6] pb-24">
-        <div className="max-w-[1320px] mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            {/* Left: Interactive Earnings Call Audio Player */}
-            <div className="lg:col-span-7 bg-white rounded-[24px] p-6 sm:p-8 shadow-sm flex flex-col justify-between border border-gray-100">
-              <audio
-                ref={audioRef}
-                src="/media/ebl-earnings-briefing.mp3"
-                preload="metadata"
-                onTimeUpdate={() => {
-                  if (audioRef.current) {
-                    const current = audioRef.current.currentTime;
-                    const duration = audioRef.current.duration || 100;
-                    setAudioProgress((current / duration) * 100);
-                  }
-                }}
-              />
 
-              {/* Progress Slider */}
-              <div className="mb-6">
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={audioProgress}
-                  onChange={(e) => {
-                    const val = parseFloat(e.target.value);
-                    setAudioProgress(val);
-                    if (audioRef.current && audioRef.current.duration) {
-                      audioRef.current.currentTime = (val / 100) * audioRef.current.duration;
-                    }
-                  }}
-                  className="w-full h-1.5 bg-gray-200 rounded-lg audio-seek-slider"
-                />
-              </div>
-
-              {/* Controls Row */}
-              <div className="flex flex-wrap items-center justify-between gap-4">
-                <div className="flex items-center gap-4">
-                  {/* Play/Pause Button */}
-                  <button
-                    onClick={togglePlay}
-                    className="w-14 h-14 rounded-full bg-[#081997] hover:bg-[#0c22c7] text-white flex items-center justify-center shadow-md transition-all active:scale-95"
-                    aria-label={isPlaying ? "Pause Earnings Audio" : "Play Earnings Audio"}
-                  >
-                    {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5 ml-0.5" />}
-                  </button>
-
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-[#081997] block">
-                      Listen to
-                    </span>
-                    <h4 className="text-sm sm:text-base font-bold text-gray-900 leading-tight">
-                      Our Latest Earnings Call - Q4 FY26
-                    </h4>
-                    <div className="text-xs text-gray-400 font-mono mt-0.5">
-                      0:24 / 01 : 08 : 00
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Mute & Speed Controls */}
-                <div className="flex items-center gap-3">
-                  <button
-                    onClick={toggleMute}
-                    className="w-10 h-10 rounded-full border border-gray-200 hover:border-[#081997] text-gray-600 flex items-center justify-center transition-colors"
-                    aria-label={isMuted ? "Unmute" : "Mute"}
-                  >
-                    {isMuted ? <VolumeX className="w-4 h-4 text-red-500" /> : <Volume2 className="w-4 h-4" />}
-                  </button>
-
-                  <select
-                    value={playbackSpeed}
-                    onChange={handleSpeedChange}
-                    className="border border-gray-200 rounded-full px-3 py-2 text-xs font-bold text-gray-700 bg-white cursor-pointer focus:outline-none focus:border-[#081997]"
-                  >
-                    <option value="1.0">1.0X</option>
-                    <option value="1.5">1.5X</option>
-                    <option value="2.0">2.0X</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Annual Report Card & Entity Status */}
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* Annual Report Download */}
-              <div className="bg-white rounded-[24px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">
-                    Annual Report
-                  </span>
-                  <div className="text-2xl font-black text-gray-900">
-                    FY 25-26
-                  </div>
-                </div>
-
-                <div className="pt-6">
-                  <a
-                    href="/corporate-info#annual-reports"
-                    className="w-12 h-12 rounded-full bg-[#081997] hover:bg-[#0c22c7] text-white flex items-center justify-center transition-all shadow-md group"
-                    title="Download Annual Report"
-                  >
-                    <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
-                  </a>
-                </div>
-              </div>
-
-              {/* Entity Status / Corporate Info */}
-              <div className="bg-white rounded-[24px] p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-                <div>
-                  <h4 className="font-extrabold text-gray-900 text-sm leading-tight">
-                    Eastern Biochemicals Ltd
-                  </h4>
-                  <p className="text-[11px] font-mono text-gray-400 mt-1">
-                    CIN: {COMPANY_INFO.cin}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-gray-100">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-500">ROC:</span>
-                    <span className="text-xs font-bold text-gray-800">{COMPANY_INFO.roc}</span>
-                  </div>
-                  <div className="flex items-center justify-between mt-1">
-                    <span className="text-xs text-gray-500">Status:</span>
-                    <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      Active (Unlisted)
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -55,7 +55,7 @@ export const COMPANY_INFO = {
   authorisedCapital: "₹10,00,000",
   paidUpCapital: "₹1,00,000",
   status: "Active · Unlisted",
-  registeredOffice: "066320, East Chandmari, Vivekananda Sarani, Sadar, West Tripura, Tripura – 799006, India",
+  registeredOffice: "Villa 171, VGN Grandeur, Keshavardhini Nagar, Periya Kolathuvancheri, Iyyappanthangal, Chennai, Tamil Nadu – 600122",
   corporateOffice: "Villa 171, VGN Grandeur, Keshavardhini Nagar, Periya Kolathuvancheri, Iyyappanthangal, Chennai, Tamil Nadu – 600122",
   defaultHomeStateCode: "16", // Tripura
   contactEmail: "info@easternbiochemicals.com",
@@ -69,7 +69,7 @@ export const INITIAL_COMPANY_SETTINGS = {
   legalName: "EASTERN BIOCHEMICALS PRIVATE LIMITED",
   cin: "U47721TR2025PTC014575",
   registrationNo: "14575",
-  registeredOffice: "066320, East Chandmari, Vivekananda Sarani, Sadar, West Tripura, Tripura – 799006, India",
+  registeredOffice: "Villa 171, VGN Grandeur, Keshavardhini Nagar, Periya Kolathuvancheri, Iyyappanthangal, Chennai, Tamil Nadu – 600122",
   corporateOffice: "Villa 171, VGN Grandeur, Keshavardhini Nagar, Periya Kolathuvancheri, Iyyappanthangal, Chennai, Tamil Nadu – 600122",
   contactPhone: "+91 91100 87654",
   contactEmail: "info@easternbiochemicals.com",
