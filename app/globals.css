@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ======================================================
+   CSS CUSTOM PROPERTIES
+====================================================== */
+:root {
+  --Primary-dark-blue: #081997;
+  --Primary-light-blue: #0094D6;
+  --c-primary: #081997;
+  --c-purple: #6B1FA0;
+  --c-accent: #0094D6;
+  --c-bg-soft: #EDF2F6;
+  --c-text: #0B0B0F;
+  --c-muted: #4B5563;
+  --c-footer: #1C1C1C;
+
+  --s-primary: #E01B47;
+  --s-primary-hover: #C4153C;
+  --s-bg: #FFF9F7;
+  --s-card: #FFFFFF;
+  --s-text: #141414;
+  --s-success: #16A34A;
+  --s-star: #F59E0B;
+  --s-whatsapp: #25D366;
+}
+
+/* ======================================================
+   BASE STYLES
+====================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #141414;
+  background-color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* ======================================================
+   CUSTOM SCROLLBAR & NO-SCROLLBAR
+====================================================== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ======================================================
+   ANIMATIONS
+====================================================== */
+.animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow { animation: spinSlow 20s linear infinite; }
+.animate-slide-up { animation: slideInUp 0.4s ease-out forwards; }
+
+/* ======================================================
+   PRODUCT CARD — HOVER ZOOM (Smooth slight zoom)
+====================================================== */
+.product-zoom-img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transform-origin: center center !important;
+  will-change: transform;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.group:hover .product-zoom-img {
+  transform: scale(1.08) !important;
+}
+
+/* ======================================================
+   BUTTON UTILITIES
+====================================================== */
+.btn-pill-primary {
+  background-color: #081997;
+  color: #ffffff;
+  border-radius: 40px;
+  height: 52px;
+  padding: 0 36px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-pill-primary:hover {
+  background-color: #0d22be;
+  box-shadow: 0 10px 25px -5px rgba(8, 25, 151, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-pill-secondary {
+  background-color: #ffffff;
+  color: #081997;
+  border-radius: 40px;
+  height: 52px;
+  padding: 0 36px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  border: 2px solid #081997;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-pill-secondary:hover {
+  background-color: #f0f4ff;
+  transform: translateY(-2px);
+}
+
+/* ======================================================
+   GLASS & BLUR UTILITIES
+====================================================== */
+.menu-blur-layer {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.glass-card-dark {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-card-dark:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ======================================================
+   AUDIO PLAYER
+====================================================== */
+input[type="range"].audio-seek-slider {
+  accent-color: #081997;
+  cursor: pointer;
+}
+
+/* ======================================================
+   LOGO — No text overlap anywhere
+====================================================== */
+.ebl-logo-container {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  overflow: visible;
+  line-height: 1;
+}
+
+.ebl-logo-container svg { display: block; overflow: visible; }
+
+.ebl-logo-img-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 100%;
+  max-height: 100%;
+}
+
+.ebl-logo-img-wrapper img {
+  object-fit: contain;
+  object-position: center;
+  width: auto;
+  height: 100%;
+  max-height: 100%;
+}
+
+/* ======================================================
+   FILTER PILLS — Mobile horizontal scroll
+====================================================== */
+@media (max-width: 640px) {
+  .filter-pills-row {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    gap: 8px !important;
+  }
+  .filter-pills-row::-webkit-scrollbar { display: none; }
+  .filter-pills-row button { flex-shrink: 0; }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — CARE ZONES: side by side row
+====================================================== */
+@media (max-width: 640px) {
+  .care-zones-mobile-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .care-zones-mobile-row .care-circle-size {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 1;
+    max-width: none !important;
+  }
+
+  .care-zones-mobile-row .care-title-size {
+    font-size: 10px !important;
+    text-align: center;
+  }
+
+  .care-zones-mobile-row .care-subtitle-hide {
+    display: none !important;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — TRENDING PRODUCTS: 2-col grid
+====================================================== */
+@media (max-width: 640px) {
+  .trending-products-mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — YOU MAY ALSO LIKE: 2-col
+====================================================== */
+@media (max-width: 640px) {
+  .may-like-mobile {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — HERO SLIDESHOW
+====================================================== */
+@media (max-width: 640px) {
+  .hero-slide-container {
+    min-height: 200px !important;
+    border-radius: 16px !important;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — VIDEO SECTION
+====================================================== */
+@media (max-width: 640px) {
+  .video-section-container {
+    min-height: 260px !important;
+    border-radius: 16px !important;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — PRODUCT CARDS: compact
+====================================================== */
+@media (max-width: 640px) {
+  .product-card-wrap {
+    padding: 10px !important;
+    border-radius: 16px !important;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — FEATURED PRODUCT: stack
+====================================================== */
+@media (max-width: 1024px) {
+  .featured-product-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-gallery-flex {
+    flex-direction: column !important;
+  }
+  .featured-thumb-strip {
+    flex-direction: row !important;
+    justify-content: center;
+    order: 2;
+  }
+  .featured-main-box {
+    min-height: 260px !important;
+    order: 1;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — REVIEWS BREAKDOWN: stack
+====================================================== */
+@media (max-width: 1024px) {
+  .reviews-header-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews-outer-box {
+    padding: 16px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — STORE FOOTER: professional stack
+====================================================== */
+@media (max-width: 640px) {
+  .footer-columns-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  .footer-full-width-col {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — CORPORATE PAGE: grid fix
+====================================================== */
+@media (max-width: 768px) {
+  .corp-hero-flex {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 24px !important;
+  }
+
+  .corp-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .corp-product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .corp-3-col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .corp-stats-grid { grid-template-columns: 1fr 1fr !important; }
+  .corp-product-grid { grid-template-columns: 1fr !important; }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — ADMIN PANEL
+====================================================== */
+@media (max-width: 768px) {
+  .admin-sidebar-nav { display: none !important; }
+  .admin-main-content { margin-left: 0 !important; }
+  .admin-stats-row { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 480px) {
+  .admin-stats-row { grid-template-columns: 1fr !important; }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE — INVOICE PAGE
+====================================================== */
+@media (max-width: 640px) {
+  .invoice-two-col { grid-template-columns: 1fr !important; }
+  .invoice-meta-row { flex-direction: column !important; gap: 8px; }
+}
+
+/* ======================================================
+   INTERACTIVE — Touch target improvements
+====================================================== */
+@media (max-width: 768px) {
+  .touch-target { min-height: 44px; min-width: 44px; }
+}
+
+/* ======================================================
+   DRAWER / MODAL — Full screen on small phones
+====================================================== */
+@media (max-width: 480px) {
+  .mobile-full-drawer {
+    max-width: 100% !important;
+    width: 100vw !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* ======================================================
+   TYPOGRAPHY — Mobile fluid scaling
+====================================================== */
+@media (max-width: 640px) {
+  .text-fluid-3xl { font-size: clamp(20px, 5.5vw, 30px) !important; }
+  .text-fluid-4xl { font-size: clamp(22px, 6vw, 36px) !important; }
+  .text-fluid-5xl { font-size: clamp(26px, 7vw, 48px) !important; }
+}
+
+/* ======================================================
+   PREVENT LAYOUT OVERFLOW
+====================================================== */
+.overflow-x-clip { overflow-x: clip; }
+
+section, .section-wrap {
+  max-width: 100vw;
+  overflow-x: hidden;
+}

@@ -1,0 +1,34 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "storeData": {
+      ".read": true,
+      ".write": true,
+      "products": {
+        ".indexOn": ["categoryId", "sku", "isLowStock"]
+      },
+      "blogs": {
+        ".indexOn": ["slug", "status"]
+      },
+      "reviews": {
+        ".indexOn": ["productId", "rating"]
+      },
+      "orders": {
+        ".indexOn": ["orderNo", "status", "placedAt", "customerEmail"]
+      },
+      "batches": {
+        ".indexOn": ["productId", "batchNo", "expiryDate"]
+      },
+      "wholesalers": {
+        ".indexOn": ["status", "channelType"]
+      },
+      "wholesaleOrders": {
+        ".indexOn": ["invoiceNo", "wholesalerId", "status", "orderDate"]
+      },
+      "expenses": {
+        ".indexOn": ["paidOn", "category"]
+      }
+    }
+  }
+}
