@@ -121,7 +121,7 @@ export default function CorporateHomePage() {
       {/* ============================================================== */}
       {/* 1. HERO SECTION (Eastern Biochemicals) */}
       {/* ============================================================== */}
-      <section className="bg-white pt-6 pb-16">
+      <section className="bg-white pt-3 sm:pt-6 pb-6 sm:pb-12">
         <div className="max-w-[1320px] mx-auto px-3 sm:px-6">
           {/* Framed Video Container */}
           <div className="relative w-full rounded-[20px] sm:rounded-[36px] overflow-hidden shadow-2xl bg-[#060e42] aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/9] min-h-[260px] sm:min-h-[380px] md:min-h-[500px] flex items-center justify-center">
@@ -163,7 +163,7 @@ export default function CorporateHomePage() {
           </div>
 
           {/* Under-Hero Statement & CTA */}
-          <div className="mt-8 sm:mt-16 text-center max-w-4xl mx-auto space-y-4 sm:space-y-6 px-3">
+          <div className="mt-4 sm:mt-10 text-center max-w-4xl mx-auto space-y-3 sm:space-y-5 px-3">
             <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#0B0B0F] tracking-tight leading-snug">
               Eastern Biochemicals, where every stride is a step towards better science and a healthier, resilient Bharat.
             </h2>
@@ -183,22 +183,21 @@ export default function CorporateHomePage() {
       {/* ============================================================== */}
       {/* 2. R&D & INNOVATION SECTION */}
       {/* ============================================================== */}
-      <section className="bg-white py-20 border-t border-gray-100">
+      <section className="bg-white py-8 sm:py-16 md:py-20 border-t border-gray-100">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6">
-          {/* Section Header with Rotating ISO Seal */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
-            <div>
-              <span className="text-[#081997] text-xs font-bold uppercase tracking-[0.2em] block mb-2">
+          {/* Section Header with Rotating ISO Seal: aligned on the same row */}
+          <div className="flex items-center justify-between mb-5 sm:mb-8 md:mb-10 gap-3 sm:gap-6">
+            <div className="flex-1 pr-2">
+              <span className="text-[#081997] text-[10px] sm:text-xs font-bold uppercase tracking-[0.2em] block mb-1">
                 R&D & INNOVATION
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B0B0F] tracking-tight leading-tight">
-                We seek out, and solve,<br />
-                tough challenges.
+              <h2 className="text-xl sm:text-3xl md:text-5xl font-black text-[#0B0B0F] tracking-tight leading-tight">
+                We seek out, and solve,<br className="hidden sm:inline" /> tough challenges.
               </h2>
             </div>
 
-            {/* Rotating ISO Stamp */}
-            <div className="relative w-28 h-28 flex items-center justify-center shrink-0 self-start md:self-auto">
+            {/* Rotating ISO Stamp - aligned in the same row */}
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 flex items-center justify-center shrink-0">
               <div className="absolute inset-0 animate-spin-slow">
                 <svg viewBox="0 0 100 100" className="w-full h-full">
                   <path
@@ -213,9 +212,9 @@ export default function CorporateHomePage() {
                   </text>
                 </svg>
               </div>
-              <div className="w-14 h-14 rounded-full bg-[#081997] text-white flex flex-col items-center justify-center font-bold text-[10px] leading-tight shadow-md">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full bg-[#081997] text-white flex flex-col items-center justify-center font-bold text-[8px] sm:text-[9px] md:text-[10px] leading-tight shadow-md">
                 <span>ISO</span>
-                <span className="text-[8px] font-medium text-cyan-300">45001</span>
+                <span className="text-[7px] sm:text-[8px] font-medium text-cyan-300">45001</span>
               </div>
             </div>
           </div>
@@ -362,7 +361,7 @@ export default function CorporateHomePage() {
       {/* ============================================================== */}
       {/* 3. INNOVATING FOR THE WORLD (video_content split banner) */}
       {/* ============================================================== */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-8 sm:py-14">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Content */}
@@ -401,14 +400,14 @@ export default function CorporateHomePage() {
       {/* ============================================================== */}
       {/* 4. OUR PROMISE SECTION (promise with light_grey_bg) */}
       {/* ============================================================== */}
-      <section className="bg-[#EDF2F6] py-24">
+      <section className="bg-[#EDF2F6] py-8 sm:py-16 md:py-20">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6">
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-16">
+          <div className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3 mb-5 sm:mb-10">
             <span className="text-[#081997] text-xs font-bold uppercase tracking-[0.2em]">
               OUR PROMISE
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0B0B0F] tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0B0B0F] tracking-tight leading-tight">
               Leave no citizen behind in the<br />
               journey towards a healthier nation.
             </h2>
@@ -506,7 +505,7 @@ export default function CorporateHomePage() {
       {/* ============================================================== */}
       {/* 5. OUR BUSINESS VERTICALS (verticals dark layout with video) */}
       {/* ============================================================== */}
-      <section className="relative bg-[#060e42] text-white py-28 overflow-hidden">
+      <section className="relative bg-[#060e42] text-white py-10 sm:py-18 md:py-24 overflow-hidden">
         {/* Looping video backdrop */}
         <video
           muted
@@ -524,14 +523,14 @@ export default function CorporateHomePage() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#060e42] via-[#060e42]/90 to-[#081997]/80" />
 
         <div className="relative z-10 max-w-[1320px] mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-12 items-start">
             {/* Left Header */}
-            <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
-              <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            <div className="lg:col-span-4 space-y-3 sm:space-y-5 lg:sticky lg:top-28">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight">
                 Our Business <br />
                 Verticals
               </h2>
-              <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-gray-300 text-xs sm:text-base leading-relaxed">
                 We excel in developing, manufacturing and marketing a diverse range of pharmaceutical formulations across various acute and chronic therapeutic areas, as well as several consumer healthcare products.
               </p>
               <div className="pt-2">
@@ -674,10 +673,10 @@ export default function CorporateHomePage() {
       {/* ============================================================== */}
       {/* 6. SUSTAINABILITY SPOTLIGHT (sustainability carousel) */}
       {/* ============================================================== */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-8 sm:py-16 md:py-20">
         <div className="max-w-[1320px] mx-auto px-4 sm:px-6">
           {/* Header with Navigation Controls */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 sm:mb-8 gap-4 sm:gap-6">
             <div>
               <span className="text-[#081997] text-xs font-bold uppercase tracking-[0.2em] block mb-2">
                 SUSTAINABILITY SPOTLIGHT
