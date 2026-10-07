@@ -416,24 +416,19 @@ export default function CorporateHomePage() {
           {/* 3 Promise Cards: Horizontal Swipeable on Mobile, 3-Columns on Desktop */}
           <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 md:grid md:grid-cols-3 md:gap-8 no-scrollbar">
             {/* Promise 1: Quality */}
-            <div className="w-[82vw] sm:w-[340px] md:w-auto shrink-0 snap-center bg-white rounded-[20px] sm:rounded-[24px] p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-              <div className="space-y-4 sm:space-y-6">
-                <div className="relative w-full rounded-2xl overflow-hidden aspect-[4/3] bg-black">
-                  <video
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source
-                      src="https://www.mankindpharma.com/wp-content/uploads/2024/11/quality-1.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex items-center gap-2 bg-white/90 backdrop-blur-md px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full shadow">
-                    <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#081997]" />
-                    <span className="text-[11px] sm:text-xs font-bold text-gray-900 uppercase">Quality</span>
+            <div className="w-[82vw] sm:w-[340px] md:w-auto shrink-0 snap-center bg-white rounded-[20px] sm:rounded-[24px] p-5 sm:p-7 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+              <div className="space-y-4">
+                <div className="relative w-full rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 shadow-inner">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/corporate/promise-quality.jpg"
+                    alt="Quality - Precision Pharmaceutical Quality Control"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-md border border-gray-100">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#081997]" />
+                    <span className="text-[11px] sm:text-xs font-bold text-gray-900 uppercase tracking-wider">Quality</span>
                   </div>
                 </div>
 
@@ -444,24 +439,19 @@ export default function CorporateHomePage() {
             </div>
 
             {/* Promise 2: Affordability */}
-            <div className="w-[82vw] sm:w-[340px] md:w-auto shrink-0 snap-center bg-white rounded-[20px] sm:rounded-[24px] p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-              <div className="space-y-4 sm:space-y-6">
-                <div className="relative w-full rounded-2xl overflow-hidden aspect-[4/3] bg-black">
-                  <video
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source
-                      src="https://www.mankindpharma.com/wp-content/uploads/2024/11/affordability.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex items-center gap-2 bg-white/90 backdrop-blur-md px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full shadow">
-                    <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#081997]" />
-                    <span className="text-[11px] sm:text-xs font-bold text-gray-900 uppercase">Affordability</span>
+            <div className="w-[82vw] sm:w-[340px] md:w-auto shrink-0 snap-center bg-white rounded-[20px] sm:rounded-[24px] p-5 sm:p-7 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+              <div className="space-y-4">
+                <div className="relative w-full rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 shadow-inner">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/corporate/promise-affordability.jpg"
+                    alt="Affordability - Affordable Healthcare For All"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-md border border-gray-100">
+                    <Heart className="w-3.5 h-3.5 text-[#081997]" />
+                    <span className="text-[11px] sm:text-xs font-bold text-gray-900 uppercase tracking-wider">Affordability</span>
                   </div>
                 </div>
 
@@ -472,24 +462,19 @@ export default function CorporateHomePage() {
             </div>
 
             {/* Promise 3: Accessibility */}
-            <div className="w-[82vw] sm:w-[340px] md:w-auto shrink-0 snap-center bg-white rounded-[20px] sm:rounded-[24px] p-6 sm:p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-              <div className="space-y-4 sm:space-y-6">
-                <div className="relative w-full rounded-2xl overflow-hidden aspect-[4/3] bg-black">
-                  <video
-                    muted
-                    loop
-                    autoPlay
-                    playsInline
-                    className="w-full h-full object-cover"
-                  >
-                    <source
-                      src="https://www.mankindpharma.com/wp-content/uploads/2024/11/accessibility.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-                  <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 flex items-center gap-2 bg-white/90 backdrop-blur-md px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full shadow">
-                    <Atom className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#081997]" />
-                    <span className="text-[11px] sm:text-xs font-bold text-gray-900 uppercase">Accessibility</span>
+            <div className="w-[82vw] sm:w-[340px] md:w-auto shrink-0 snap-center bg-white rounded-[20px] sm:rounded-[24px] p-5 sm:p-7 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+              <div className="space-y-4">
+                <div className="relative w-full rounded-2xl overflow-hidden aspect-[4/3] bg-slate-100 shadow-inner">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/corporate/promise-accessibility.jpg"
+                    alt="Accessibility - Pan-India Last-Mile Distribution"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-3 left-3 flex items-center gap-2 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full shadow-md border border-gray-100">
+                    <Atom className="w-3.5 h-3.5 text-[#081997]" />
+                    <span className="text-[11px] sm:text-xs font-bold text-gray-900 uppercase tracking-wider">Accessibility</span>
                   </div>
                 </div>
 
